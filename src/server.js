@@ -1,17 +1,7 @@
-const express = require("express");
-const { default: mongoose } = require("mongoose");
-const app = express();
+const http = require("http");
+const { PORT } = require("./config");
+const app = require("./app");
 
-mongoose
-  .connect("mongodb+srv://root:Huseyn123@cluster0.eqtkx3v.mongodb.net/test")
-  .then((res) => {
-    console.log("Connected to db");
-  })
-  .catch((err) => {
-    console.log("db error", err);
-  });
+const server = http.createServer(app);
 
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
-app.listen(3000);
+server.listen(3000);

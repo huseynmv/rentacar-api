@@ -30,6 +30,12 @@ const carController = {
       res.send(201).json(data);
     });
   },
+  deletebyid: (req, res) => {
+    let id = req.params.id;
+
+    carModel.findOne({ _id: id }).remove().exec();
+    res.send("Deleted");
+  },
 };
 
 module.exports = carController;

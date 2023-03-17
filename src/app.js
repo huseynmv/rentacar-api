@@ -2,6 +2,7 @@ const express = require("express");
 const { default: mongoose } = require("mongoose");
 const carRouter = require("./api/routes/car.router");
 const userRouter = require("./api/routes/user.router");
+const authRouter = require("./api/routes/auth.router");
 const { CONNECTION_STRING } = require("./config");
 const app = express();
 app.use(express.json());
@@ -17,6 +18,7 @@ mongoose
 
 app.use("/api/car", carRouter);
 app.use("/api/user", userRouter);
+app.use("/api/auth", authRouter);
 
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).json({

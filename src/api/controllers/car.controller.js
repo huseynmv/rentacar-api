@@ -6,6 +6,12 @@ const carController = {
       res.send(data);
     });
   },
+  getbyID: async (req, res, next) => {
+    let id = req.params.id;
+    carModel.findOne({ id: id }).then((data) => {
+      res.send(data);
+    });
+  },
 };
 
 module.exports = carController;

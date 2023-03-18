@@ -36,6 +36,17 @@ const carController = {
     carModel.findOne({ _id: id }).remove().exec();
     res.send("Deleted");
   },
+  search: async (req, res) => {
+    try {
+      const findname = req.params.search;
+      const objs = await carModel.find({
+        name: { $regex: ".*" + findname + ".*" },
+      });
+      res.json(objs);
+    } catch (error) {
+      res.json({ message: error });
+    }
+  },
 };
 
 module.exports = carController;

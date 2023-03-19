@@ -1,4 +1,6 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
+console.log(process.env);
 
 const sendMessage = async (code, toMail, subject = "Confirm Code") => {
   let transporter = nodemailer.createTransport({
@@ -6,12 +8,12 @@ const sendMessage = async (code, toMail, subject = "Confirm Code") => {
     port: 465,
     secure: true,
     auth: {
-      user: "memmedovh5@gmail.com",
-      pass: "gviqnrtxschlgyzx",
+      user: process.env.MAIL_USER,
+      pass: process.env.MAIL_PASS,
     },
   });
   let info = await transporter.sendMail({
-    from: "memmedovh5@gmail.com",
+    from: process.env.MAIL_USER,
     to: toMail,
     subject: subject,
     text: "Hello word",

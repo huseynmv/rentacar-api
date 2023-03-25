@@ -49,10 +49,12 @@ const authController = {
   login: async (req, res, next) => {
     try {
       const Loginemail = req.body.email;
+      console.log(Loginemail);
       const userDb = await userModel.findOne().where({
         email: Loginemail,
       });
       console.log(userDb);
+
       if (!userDb) {
         throw new Error("user not found");
       }

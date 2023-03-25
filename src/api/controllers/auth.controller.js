@@ -52,22 +52,25 @@ const authController = {
       const userDb = await userModel.findOne({
         email: Loginemail,
       });
+      console.log(userDb);
       if (!userDb) {
         throw new Error("user not found");
       }
       if (!userDb.isConfirm) {
         throw new Error("email not confirmed");
       }
-      const confirmobj = await confirmCodeSendMail(email);
+      const confirmobj = await confirmCodeSendMail(Loginemail);
+      console.log(confirmobj);
       userDb.confirmCode = confirmobj.confirmCode;
       userDb.confirmCodeExpDate = confirmobj.expDate;
       userDb.save();
       res.json({
         ok: true,
         statusCode: 200,
-        email: email,
+        email: Loginemail,
       });
     } catch (error) {
+      console.log(error);
       next(error);
     }
   },

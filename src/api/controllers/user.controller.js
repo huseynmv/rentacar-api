@@ -29,7 +29,7 @@ const userController = {
         email: email,
       });
     } catch (error) {
-      console.log("catch");
+      console.log("register catch");
       next(error);
     }
   },

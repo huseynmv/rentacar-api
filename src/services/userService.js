@@ -9,7 +9,6 @@ const usernameGenerator = async (fullName, number = 1) => {
   });
   const newNumber = number + 1;
   if (userDb) {
-    console.log(number);
     return usernameGenerator(fullName + newNumber, newNumber);
   }
   return username;

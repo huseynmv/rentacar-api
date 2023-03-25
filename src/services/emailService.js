@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
 require("dotenv").config();
-console.log(process.env);
 
 const sendMessage = async (code, toMail, subject = "Confirm Code") => {
   let transporter = nodemailer.createTransport({

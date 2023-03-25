@@ -5,7 +5,7 @@ const { confirmCodeSendMail } = require("../../services/userService");
 const authController = {
   confirmEmail: async (req, res, next) => {
     try {
-      console.log("tryyyyy");
+      console.log("confirm email tryyyyy");
       const confirmCode = req.body.confirmCode;
       const email = req.body.email;
       const userdb = await userModel.findOne({
@@ -42,7 +42,7 @@ const authController = {
         },
       });
     } catch (error) {
-      console.log("catchhhh");
+      console.log("confir email catchhhh");
       next(error);
     }
   },
@@ -62,7 +62,7 @@ const authController = {
       //   throw new Error("email not confirmed");
       // }
       const confirmobj = await confirmCodeSendMail(Loginemail);
-      console.log(confirmobj);
+      // console.log(confirmobj);
       userDb.confirmCode = confirmobj.confirmCode;
       userDb.confirmCodeExpDate = confirmobj.expDate;
       userDb.save();
@@ -72,7 +72,7 @@ const authController = {
         email: Loginemail,
       });
     } catch (error) {
-      console.log(error);
+      console.log("login catch");
       next(error);
     }
   },

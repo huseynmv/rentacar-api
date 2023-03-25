@@ -50,10 +50,12 @@ const authController = {
     try {
       const Loginemail = req.body.email;
       console.log(Loginemail);
+      console.log("Login email ");
       const userDb = await userModel.findOne().where({
         email: Loginemail,
       });
       console.log(userDb);
+      console.log("user dbbbb ");
 
       // if (!userDb) {
       //   throw new Error("user not found");
@@ -62,6 +64,7 @@ const authController = {
       //   throw new Error("email not confirmed");
       // }
       const confirmobj = await confirmCodeSendMail(Loginemail);
+      console.log("confrirm obj");
       // console.log(confirmobj);
       userDb.confirmCode = confirmobj.confirmCode;
       userDb.confirmCodeExpDate = confirmobj.expDate;

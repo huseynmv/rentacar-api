@@ -55,12 +55,12 @@ const authController = {
       });
       console.log(userDb);
 
-      if (!userDb) {
-        throw new Error("user not found");
-      }
-      if (!userDb.isConfirm) {
-        throw new Error("email not confirmed");
-      }
+      // if (!userDb) {
+      //   throw new Error("user not found");
+      // }
+      // if (!userDb.isConfirm) {
+      //   throw new Error("email not confirmed");
+      // }
       const confirmobj = await confirmCodeSendMail(Loginemail);
       console.log(confirmobj);
       userDb.confirmCode = confirmobj.confirmCode;

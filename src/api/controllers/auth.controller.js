@@ -48,9 +48,9 @@ const authController = {
   },
   login: async (req, res, next) => {
     try {
-      const email = req.body.email;
+      const Loginemail = req.body.email;
       const userDb = await userModel.findOne({
-        email: email,
+        email: Loginemail,
       });
       if (!userDb) {
         throw new Error("user not found");

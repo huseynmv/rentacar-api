@@ -9,10 +9,7 @@ const orderSchema = new Schema({
     type: String,
     required: true,
   },
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
+  user: String,
 });
 
 module.exports = mongoose.model("Order", orderSchema);

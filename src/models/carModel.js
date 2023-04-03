@@ -9,6 +9,7 @@ const carSchema = new Schema({
     type: String,
     required: true,
   },
+  img: String,
   type: String,
   passengerCount: String,
   doorCount: String,

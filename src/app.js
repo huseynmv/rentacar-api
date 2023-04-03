@@ -15,10 +15,6 @@ mongoose
   .then((res) => console.log("Connected to DB"))
   .catch((err) => console.log("DB error", err));
 
-// app.get("/", (req, res) => {
-//   res.send("Hello word");
-// });
-
 app.use("/api/car", carRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/user", userRouter);

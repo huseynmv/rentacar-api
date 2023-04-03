@@ -16,6 +16,7 @@ const carController = {
     let new_car = new carModel({
       model: req.body.model,
       name: req.body.name,
+      img: req.body.image,
       type: req.body.type,
       passengerCount: req.body.passengerCount,
       doorCount: req.body.doorCount,
@@ -27,7 +28,7 @@ const carController = {
     });
 
     new_car.save().then((data) => {
-      res.send(201).json(data);
+      res.send(201);
     });
   },
   deletebyid: (req, res) => {

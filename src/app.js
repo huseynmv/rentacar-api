@@ -22,7 +22,7 @@ app.use("/api/car", carRouter);
 app.use("/api/order", orderRouter);
 app.use("/api/user", userRouter);
 app.use("/api/auth", authRouter);
-app.use(cors());
+app.use(cors({ origin: "*" }));
 app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).json({
     message: err?.message || "Server error",

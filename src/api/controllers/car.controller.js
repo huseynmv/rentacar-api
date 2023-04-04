@@ -31,6 +31,7 @@ const carController = {
       res.send(201);
     });
   },
+
   deletebyid: async (req, res) => {
     let id = req.params.id;
 

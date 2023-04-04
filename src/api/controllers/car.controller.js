@@ -31,10 +31,10 @@ const carController = {
       res.send(201);
     });
   },
-  deletebyid: (req, res) => {
+  deletebyid: async (req, res) => {
     let id = req.params.id;
 
-    carModel.findOne({ _id: id }).remove().exec();
+    await carModel.deleteOne({ _id: id });
     res.send("Deleted");
   },
   search: async (req, res) => {
